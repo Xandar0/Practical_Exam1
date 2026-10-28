@@ -8,20 +8,26 @@ int main(){
     cin.tie(nullptr);
 
     string s;
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
     cin >> s;
-    int indice_alpha = 0;
-
-    int add = 0;
-
-    for(int i = 0; i < s.size(); i++){
-        if(s[i] != alphabet[indice_alpha]){
+    int best_lengh = 1;
+    int indx = 0;
+    while(indx < s.size()-1){
+        int add = 0;
+        while((indx < s.size()-1) && (int(s[indx]) == int(s[indx+1])-1)){
             add++;
+            indx++;
         }
-        else{
-            indice_alpha++;
+        best_lengh = max(best_lengh,add);
+        indx++;
+    }
+
+    int goodplace = 0;
+    for(int i=0; i<s.size();i++){
+        if((int(s[i])-97) == i){
+            goodplace++;
         }
     }
-    cout << add << endl;
+
+    cout << min(24-best_lengh+1, 24-goodplace)<< endl;
     return 0;
 }
