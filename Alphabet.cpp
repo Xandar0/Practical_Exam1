@@ -10,9 +10,9 @@ int main(){
     string s;
     string alphabet = "abcdefghijklmnopqrstuvwxyz";
     cin >> s;
-    int total = 24;
+    int indice_alpha = 0;
 
-    int good_place = 0;
+    int add = 0;
 
     for(int i = 0; i < s.size(); i++){
         if(s[i] != alphabet[indice_alpha]){

@@ -5,6 +5,21 @@ using namespace std;
 
 
 
+int testfind(vector<long long> phototest, long long nbpeople){
+    int find = 0;    
+    for(long long a = 0; a < (nbpeople-2); a++){
+            for(long long y = a+1; y < (nbpeople-1); y++){
+                for(long long b =y+1; b <nbpeople;b++){
+                    if((phototest[a] > phototest[y]) && (phototest[b] > phototest[a])){
+                        find = 1;
+                        return find;
+                    }
+                }
+            }
+    }
+    return find;
+}
+
 int main(){
     ios::sync_with_stdio(false); 
     cin.tie(nullptr);
@@ -25,17 +40,8 @@ int main(){
     vector<int> investigate(nb_photo);
     int nbInvest = 0;
     for(int i = 0; i<nb_photo;i++){
-       int find = 0;
-       for(long long a = 0; a < (album[i].size()-2); a++){
-            for(long long y = a+1; y < (album[i].size()-1); y++){
-                for(long long b =y+1; b <album[i].size();b++){
-                    if((album[i][a] > album[i][y]) && (album[i][b] > album[i][a])){
-                        find = 1;
-                        break;
-                    }
-                }
-            }
-        }
+        int find = 0;
+        find = testfind(album[i], album[i].size());
         if(find){
         investigate[nbInvest] = i+1;
         nbInvest++;
