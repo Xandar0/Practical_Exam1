@@ -14,17 +14,16 @@ int main(){
             return 0;
         }
         else if (output=="lower"){
-            max = myguess;
+            max = myguess-1;
             myguess = (min + max)/2;
             cout << myguess << endl;
         }
         else if (output=="higher"){
-            min = myguess;
+            min = myguess+1;
             myguess = (min + max)/2;
             cout << myguess << endl;
         }
         cin >> output;
     }
-
     return 0;
 }
