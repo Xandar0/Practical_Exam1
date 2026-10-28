@@ -15,23 +15,26 @@ int main(){
         }
     }
 
-    int maxheigh = 1;
 
-    int a = 0;
-    int b = 0;
 
-    while((a != n-1) && (b != n-1)){
-        int right = cave[a][b+1];
-        
-        int down = cave[a+1][b];
-        if(right < down){
-            b = b+1;
-            if(maxheigh < right){
-                maxheigh = right;
+
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 1));
+    for(int i = 0; i<n;i++){
+        for(int j=0; j<n; j++){
+            if(i==0 && j!=0){
+                dp[i][j] = max(cave[i][j],dp[i][j-1]);
             }
-        }else{
-            a = a+1;
+            else if(j==0 && i !=0){
+                dp[i][j] = max(cave[i][j],dp[i-1][j]);
+            }
+            else{
+                int test = max(dp[i][j-1],dp[i-1][j]);
+                dp[i][j] = max(cave[i][j],test);
+            }
         }
     }
+
+
+    cout << dp[n-1][n-1] << endl;
     return 0;
 }
