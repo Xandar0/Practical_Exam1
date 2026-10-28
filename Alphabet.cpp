@@ -10,16 +10,18 @@ int main(){
     string s;
     string alphabet = "abcdefghijklmnopqrstuvwxyz";
     cin >> s;
-    int add = 0;
+    int total = 24;
 
-    //sort(s.begin(),s.end());
-    
+    int good_place = 0;
 
     for(int i = 0; i < s.size(); i++){
-        if(s[i] != alphabet[i]){
+        if(s[i] != alphabet[indice_alpha]){
             add++;
         }
+        else{
+            indice_alpha++;
+        }
     }
-    cout << s << endl;
+    cout << add << endl;
     return 0;
 }

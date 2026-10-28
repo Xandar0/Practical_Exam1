@@ -18,7 +18,7 @@ int main(){
         strategy[i].second = cost;
     }
 
-    // find good strategy
+
     int minDay = 1000000000;
     for()
     return 0;
